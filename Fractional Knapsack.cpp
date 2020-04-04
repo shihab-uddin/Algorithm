@@ -24,15 +24,15 @@ int main(){
         cout<<"Item : "<<i<<" Weight : "<<itemInfo[i].first<<" Price : $"<<itemInfo[i].second<<endl;
     }
 
-    for(int i = 1; i < index; i++){
+    for(int i = 1; i < index; i++){ // Calculation unit price of all products
         unitPrice = (float)(itemInfo[i].second/itemInfo[i].first);
         pq.push(make_pair(unitPrice, i));
     }
 
-    while(!pq.empty() && knapsack != 0){
-        pair<int, int> frnt = pq.top();
+    while(!pq.empty() && knapsack != 0){ // Taking items one by one according to highest unit profit & Also checking knapsack is full or not.
+        pair<int, int> frnt = pq.top(); // Taking a item which has highest unit profit.
         pq.pop();
-        if(itemInfo[frnt.second].first <= knapsack){
+        if(itemInfo[frnt.second].first <= knapsack){ // if item's weight less than size of knapsack then take it.
             totalPrice += itemInfo[frnt.second].second;
             cout<<"Selected Item : "<<frnt.second<<" Weight : "<<itemInfo[frnt.second].first<<" Price : "<<itemInfo[frnt.second].second<<endl;
             knapsack -= itemInfo[frnt.second].first;
@@ -45,3 +45,15 @@ int main(){
 
     return 0;
 }
+
+
+/*Input :
+
+10  ------->Knapsack Size.
+4 12 ------>Weight, Price.
+8 32
+2 40
+6 30
+1 50
+
+*/
