@@ -1,7 +1,5 @@
-/**
-Longest Common Subsequence using Memoization approach
-Branch and Bound Technique
-*/
+/** Longest Common Subsequence using Memoization Approach(Branch and Bound Technique) */
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -25,8 +23,6 @@ int subproblem(int i, int j){
 	}
 	return L[i][j];
 }
-
-
 
 int lcs_length(){
     for (int i = 0; i <= m; i++){
