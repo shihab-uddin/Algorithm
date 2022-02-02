@@ -11,15 +11,15 @@ int m = 40;
 
 int subproblem(int i, int j){
 	if (L[i][j] < 0){
-	    if (A[i] == '\0' || B[j] == '\0'){
-            L[i][j] = 0;
-	    }
-	    else if (A[i] == B[j]){
-            L[i][j] = 1 + subproblem(i+1, j+1);
-	    }
-	    else{
-            L[i][j] = max(subproblem(i+1, j), subproblem(i, j+1));
-	    }
+		if (A[i] == '\0' || B[j] == '\0'){
+			L[i][j] = 0;
+		}
+		else if (A[i] == B[j]){
+			L[i][j] = 1 + subproblem(i+1, j+1);
+		}
+		else{
+			L[i][j] = max(subproblem(i+1, j), subproblem(i, j+1));
+		}
 	}
 	return L[i][j];
 }
